@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;400;500;700&family=Roboto:wght@100&display=swap');
+
+* {
+    font-family: 'Kanit', Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.banner {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+
+.banner h1 {
+    position: absolute;
+    color: #f8f8f8;
+    text-shadow: 3px 3px 10px rgba(128, 128, 128, 0.5);
+    bottom: 250px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.banner a {
+    position: absolute;
+    color: #f8f8f8;
+    text-decoration: none;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    bottom: 220px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.banner img {
+    object-fit: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu.active {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(128, 128, 128, 0.5);
+    z-index: 11;
+}
+
+.menu .innermenu {
+    height: 100%;
+    width: 0;
+    background-color: #f8f8f8;
+    transition: .4s ease-in-out;
+
+
+}
+
+.menu .innermenu aside {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.menu .innermenu aside a {
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.menu .innermenu aside a:hover {
+    background-color: #ebebeb;
+
+}
+
+.menu.active .innermenu aside {
+    display: flex;
+}
+
+.menu .closemenu {
+    width: 70%;
+    height: 100%;
+}
+
+.menu .innermenu i {
+    display: none;
+    position: absolute;
+    transform: scale(1.3);
+    top: 35px;
+    left: 50px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.menu.active .innermenu {
+    width: 30%;
+}
+
+.menu.active .innermenu i {
+    display: block;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    position: relative;
+}
+
+
+
+nav .menuicon {
+    margin-left: 50px;
+    cursor: pointer;
+    transform: scale(1.3);
+    z-index: 10;
+    user-select: none;
+}
+
+
+nav .logo img {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    user-select: none;
+}
+
+nav .login {
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+}
+
+nav .login a {
+    margin-right: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
+}
+
+nav .login i {
+    transform: scale(1.2);
+    user-select: none;
+    color: black;
+}
+
+@media (max-width: 480px) and (min-width:280px) {
+    body {
+        font-size: 12px;
+    }
+
+    nav .login .logintext {
+        display: none;
+    }
+
+    nav .login {
+        margin-right: 0;
+    }
+
+    nav .menuicon {
+        margin-left: 10px;
+    }
+
+    .menu.active .innermenu {
+        width: 140%;
+    }
+
+    .menu.active .innermenu i {
+        left: 10px;
+    }
+}
+
+@media (max-width: 1023px) and (min-width:481px) {
+    .menu.active .innermenu {
+        width: 70%;
+    }
+}
+
+@media (max-width: 1024px) and (min-width:768px) {
+
+    .menu.active .innermenu {
+        width: 50%;
+    }
+
+
+}
