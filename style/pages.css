@@ -1,0 +1,137 @@
+.controls {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+/* Left Side */
+.controls .left {
+    margin-left: 30px;
+}
+
+/* Right side */
+.controls .right {
+    margin-right: 30px;
+    display: flex;
+}
+
+.filter {
+    position: fixed;
+}
+
+.filter.active {
+    display: flex;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(128, 128, 128, 0.5);
+    z-index: 12;
+
+}
+
+.filter .filtercontent {
+    width: 0;
+    transition: width .4s;
+}
+
+.filter.active .filtercontent {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40%;
+    height: 70%;
+    background-color: #f8f8f8;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px 0px 0px 10px;
+}
+
+.filter .darkness {
+    height: 100vh;
+    width: 100vw;
+}
+
+
+/* Piece */
+.controls .right .piece {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.controls .right .piece.close .close {
+    display: none;
+}
+
+.controls .right .piece .square {
+    margin: 2px;
+    width: 5px;
+    height: 5px;
+    background-color: gray;
+}
+
+.controls .right span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.productcontainer {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+.productcontainer .product {
+    position: relative;
+    height: 400px;
+    width: 300px;
+    background-color: #f8f8f8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.productcontainer .product .imgbox {
+    height: 100%;
+    width: 100%;
+}
+
+.productcontainer .product .imgbox img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.productcontainer .product .addcart {
+    height: 30px;
+    width: 30px;
+    display: flex;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -10px;
+    right: 10px;
+    background-color: #f8f8f8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: all .4s;
+    opacity: 0;
+}
+
+.productcontainer .product:hover .addcart {
+    bottom: 10px;
+    opacity: 1;
+
+}
