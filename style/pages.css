@@ -6,15 +6,44 @@
 
 }
 
+/* Info */
+.info {
+    display: flex;
+    background-color: #efefef;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.info i {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+}
+
 /* Left Side */
 .controls .left {
     margin-left: 30px;
 }
 
+.controls .left a {
+    text-decoration: none;
+    color: black;
+}
+
 /* Right side */
+
 .controls .right {
     margin-right: 30px;
     display: flex;
+    align-items: center;
+}
+
+.controls .right hr {
+    margin: 10px;
+    height: 20px;
 }
 
 .filter {
@@ -35,6 +64,14 @@
 .filter .filtercontent {
     width: 0;
     transition: width .4s;
+    position: relative;
+}
+
+.filter .filtercontent i {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    cursor: pointer;
 }
 
 .filter.active .filtercontent {
@@ -43,7 +80,7 @@
     top: 50%;
     transform: translateY(-50%);
     width: 40%;
-    height: 70%;
+    height: 100%;
     background-color: #f8f8f8;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px 0px 0px 10px;
@@ -54,26 +91,40 @@
     width: 100vw;
 }
 
+@media (max-width: 480px) and (min-width:280px) {
+    .filter.active .filtercontent {
+        width: 100%;
+        border-radius: 0 0 0 0;
+    }
+}
+
+@media (max-width: 1024px) and (min-width:480px) {
+    .filter.active .filtercontent {
+        width: 50%;
+
+    }
+}
 
 /* Piece */
 .controls .right .piece {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 20px;
     cursor: pointer;
     user-select: none;
+    margin-right: 1s0px;
 }
 
-.controls .right .piece.close .close {
+.controls .right .piece .large {
     display: none;
 }
 
-.controls .right .piece .square {
-    margin: 2px;
-    width: 5px;
-    height: 5px;
-    background-color: gray;
+.controls .right .piece.close .large {
+    display: flex;
+}
+
+.controls .right .piece.close .small {
+    display: none;
 }
 
 .controls .right span {
@@ -90,7 +141,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 50px;
-    margin-top: 50px;
+    margin-top: 20px;
     justify-content: center;
 }
 
@@ -99,8 +150,20 @@
     height: 400px;
     width: 300px;
     background-color: #f8f8f8;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
     cursor: pointer;
+
+}
+
+.productcontainer .product.size {
+    height: 500px;
+    width: 400px;
+}
+
+.productcontainer .product:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
 }
 
 .productcontainer .product .imgbox {
@@ -112,6 +175,23 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+
+.productcontainer .product .imgbox::before {
+    transition: all 300ms ease-in-out;
+}
+
+.productcontainer .product:hover .imgbox::before {
+    content: "";
+    height: 40px;
+    width: 100%;
+    background-color: black;
+    position: absolute;
+    z-index: 4;
+    bottom: 0;
+    filter: blur(100px);
+    transition: all 300ms ease-in-out;
+
 }
 
 .productcontainer .product .addcart {
@@ -126,12 +206,82 @@
     right: 10px;
     background-color: #f8f8f8;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    transition: all .4s;
+    transition: 300ms ease-in-out;
     opacity: 0;
+    z-index: 13;
+}
+
+.productcontainer .product .addcart:hover {
+    background-color: #f0f0f0;
+
 }
 
 .productcontainer .product:hover .addcart {
     bottom: 10px;
     opacity: 1;
+}
+
+.productcontainer .product .productsize form {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: 300ms ease-in-out 100ms;
+    bottom: -40px;
+    z-index: 15;
+}
+
+.productcontainer .product:hover .productsize form {
+    opacity: 1;
+    bottom: 0px;
+}
+
+
+.productcontainer .product .productsize form label {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    color: #f8f8f8;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+
+
+.productcontainer .product .productsize form label span {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: 3px green solid;
+    position: absolute;
+    z-index: -1;
+}
+
+.productcontainer .product .productsize form label span::after {
+    content: "";
+    height: 25px;
+    width: 25px;
+    background-color: green;
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 300ms ease-in-out 0s;
+}
+
+.productcontainer .product .productsize form label input[type="radio"]:checked~span:after {
+    transform: translate(-50%, -50%) scale(1);
 
 }

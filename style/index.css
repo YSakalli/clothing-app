@@ -47,6 +47,7 @@ body {
 
 .menu {
     display: flex;
+
 }
 
 .menu.active {
@@ -57,13 +58,19 @@ body {
     z-index: 11;
 }
 
+.menu.active .innermenu {
+    width: 30%;
+}
+
+.menu.active .innermenu i {
+    display: flex;
+}
+
 .menu .innermenu {
     height: 100%;
     width: 0;
     background-color: #f8f8f8;
     transition: .4s ease-in-out;
-
-
 }
 
 .menu .innermenu aside {
@@ -74,6 +81,7 @@ body {
     justify-content: center;
     align-items: center;
     display: none;
+    z-index: 10;
 }
 
 .menu .innermenu aside a {
@@ -111,13 +119,7 @@ body {
     cursor: pointer;
 }
 
-.menu.active .innermenu {
-    width: 30%;
-}
 
-.menu.active .innermenu i {
-    display: block;
-}
 
 /* Navbar */
 nav {
@@ -187,7 +189,12 @@ nav .login i {
     }
 
     .menu.active .innermenu {
-        width: 140%;
+        width: 100%;
+    }
+
+    .menu .closemenu {
+        width: 0;
+        height: 100%;
     }
 
     .menu.active .innermenu i {
