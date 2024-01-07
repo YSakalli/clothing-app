@@ -86,6 +86,7 @@
     border-radius: 10px 0px 0px 10px;
 }
 
+
 .filter .darkness {
     height: 100vh;
     width: 100vw;
@@ -112,7 +113,7 @@
     justify-content: center;
     cursor: pointer;
     user-select: none;
-    margin-right: 1s0px;
+    margin-right: 10px;
 }
 
 .controls .right .piece .large {
@@ -151,8 +152,8 @@
     width: 300px;
     background-color: #f8f8f8;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-    overflow: hidden;
     cursor: pointer;
+    overflow: hidden;
 
 }
 
@@ -163,6 +164,32 @@
 
 .productcontainer .product:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+}
+
+.productcontainer .product #resultContainer {
+    position: absolute;
+    width: 100%;
+    top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 101;
+}
+
+.productcontainer .product #resultContainer .Err {
+    position: absolute;
+    z-index: 10;
+    color: red;
+    text-align: center;
+
+}
+
+.productcontainer .product #resultContainer .Success {
+    position: absolute;
+    z-index: 10;
+    color: green;
+    text-align: center;
 
 }
 
@@ -221,7 +248,25 @@
     opacity: 1;
 }
 
-.productcontainer .product .productsize form {
+.productcontainer .product .addcart button {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+
+.productcontainer .product .addcart button i {
+    font-size: 16px;
+}
+
+
+.productcontainer .product .productsize .sizediv {
     display: flex;
     position: absolute;
     left: 50%;
@@ -232,13 +277,13 @@
     z-index: 15;
 }
 
-.productcontainer .product:hover .productsize form {
+.productcontainer .product:hover .productsize .sizediv {
     opacity: 1;
     bottom: 0px;
 }
 
 
-.productcontainer .product .productsize form label {
+.productcontainer .product .productsize .sizediv label {
     width: 50px;
     height: 50px;
     display: flex;
@@ -247,9 +292,14 @@
     justify-content: center;
     flex-direction: column;
     position: relative;
-    color: #f8f8f8;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 
+}
+
+.productcontainer .product.size .productsize .sizediv label {
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 input[type="radio"] {
@@ -258,21 +308,27 @@ input[type="radio"] {
 
 
 
-.productcontainer .product .productsize form label span {
+.productcontainer .product .productsize .sizediv label span {
     height: 25px;
     width: 25px;
     border-radius: 50%;
-    border: 3px green solid;
+    border: 2px green solid;
     position: absolute;
     z-index: -1;
 }
 
-.productcontainer .product .productsize form label span::after {
+.productcontainer .product.size .productsize .sizediv label span {
+    height: 30px;
+    width: 30px;
+}
+
+.productcontainer .product .productsize .sizediv label span::after {
     content: "";
     height: 25px;
     width: 25px;
     background-color: green;
     border-radius: 50%;
+    color: white;
     display: block;
     position: absolute;
     top: 50%;
@@ -281,7 +337,45 @@ input[type="radio"] {
     transition: 300ms ease-in-out 0s;
 }
 
-.productcontainer .product .productsize form label input[type="radio"]:checked~span:after {
+.productcontainer .product.size .productsize .sizediv label span::after {
+    height: 30px;
+    width: 30px;
+}
+
+.productcontainer .product .productsize .sizediv label input[type="radio"]:checked~span:after {
     transform: translate(-50%, -50%) scale(1);
 
+}
+
+.productcontainer .product .price {
+    position: absolute;
+    top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+    border-radius: 0px 5px 5px 0px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.05);
+    height: 30px;
+    width: 80px;
+    opacity: 0.7;
+}
+
+.productcontainer .product:hover .price {
+    opacity: 1;
+
+}
+
+.productcontainer .product .price p {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.productcontainer .product.size .price {
+    height: 35px;
+    width: 100px;
+}
+
+.productcontainer .product.size .price p {
+    font-size: 20px;
 }

@@ -1,3 +1,10 @@
+<?php
+session_start();
+include("../config/connect.php");
+
+$id = 1;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -76,24 +83,30 @@
     </div>
     <!-- Product Container -->
     <div class="productcontainer">
-        <div class="product">
 
+        <?php
+        // Product Get
+        $products = getDataAll('Products');
+        foreach ($products as $product) {
+            echo ' 
+            <div class="product">
+                <div id="resultContainer"></div>
             <div class="imgbox">
-                <a href="productview.html">
+                <a href="">
                     <img src="../asset/banner2.jpg" alt="">
                 </a>
             </div>
 
-            <form action="" method="post">
+            <form action="" method="post" id="addCartForm_' . $product['ProductID'] . '">
                 <div class="addcart">
                     <button type="submit" name="addcart">
                         <i class="material-icons">add</i>
                     </button>
                 </div>
-            </form>
+                <input type="hidden" name="ProductID" value=" ' . $product['ProductID'] . ' ">
 
             <div class="productsize">
-                <form action="" method="post">
+                    <div class="sizediv">
                     <label>
                         <input type="radio" name="size" value="S">
                         S
@@ -109,18 +122,52 @@
                         XL
                         <span></span>
                     </label>
+            </div>
 
                 </form>
-
             </div>
             <div class="price">
-                <p>24$</p>
+                <p>$' . $product['Price'] . '</p>
             </div>
-        </div>
+        </div> 
+            ';
+        }
+        ?>
+
 
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var forms = document.querySelectorAll('[id^=addCartForm_]');
+
+            forms.forEach(function (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    var productID = form.querySelector('input[name="ProductID"]').value;
+                    var formData = new FormData(form);
+
+                    console.log(forms);
+                    console.log(productID);
+
+                    fetch('process.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                        .then(response => response.text())
+                        .then(data => {
+                            console.log('Gelen Veri:', data);
+                            document.getElementById('resultContainer').innerHTML = data;
+                        })
+                        .catch(error => console.error('Error:', error));
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
