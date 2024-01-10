@@ -1,0 +1,74 @@
+{
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": [
+                    "comment"
+                ],
+                "settings": {
+                    "foreground": "#00c857d2" // Yorumlar (Yeşil)
+                }
+            },
+        ]
+    }
+}
+//             {
+//                 "scope": [
+//                     "keyword"
+//                 ],
+//                 "settings": {
+//                     "foreground": "#ffffff" // Anahtar kelimeler (Mavi)
+//                 }
+//             },
+//             {
+//                 "scope": [
+//                     "string"
+//                 ],
+//                 "settings": {
+//                     "foreground": "#ffffff" // String ifadeleri (Beyaz)
+//                 }
+//             },
+//             {
+//                 "scope": [
+//                     "variable.language"
+//                 ],
+//                 "settings": {
+//                     "foreground": "#f74343" // Dil özel değişkenler (Yeşil)
+//                 }
+//             },
+//             {
+//                 "scope": [
+//                     "entity.name.function",
+//                     "support.function"
+//                 ],
+//                 "settings": {
+//                     "foreground": "#E61B1B" // Fonksiyon isimleri ve desteklenen fonksiyonlar (Kahverengi)
+//                 }
+//             },
+//             {
+//                 "scope": [
+//                     "comment.css",
+//                     "string.css",
+//                     "keyword.css",
+//                     "selector.css",
+//                     "property.css",
+//                     "variable.css",
+//                     "variable.parameter.css"
+//                 ],
+//                 "settings": {
+//                     "foreground": "#ff0505" // CSS ile ilgili kapsamlar (Yeşil)
+//                 }
+//             },
+//             {
+//                 "scope": [
+//                     "support.type.property-name.css",
+//                     "entity.name.tag.css",
+//                     "entity.other.attribute-name.css"
+//                 ],
+//                 "settings": {
+//                     "foreground": "#ffffff" // CSS özellik isimleri, etiket isimleri ve diğer nesneler (Kırmızı)
+//                 }
+//             }
+//         ]
+//     }
+// }

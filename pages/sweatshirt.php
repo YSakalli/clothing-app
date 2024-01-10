@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("../config/connect.php");
+include("../config/functions.php");
 
 $id = 1;
 
@@ -83,14 +84,15 @@ $id = 1;
     </div>
     <!-- Product Container -->
     <div class="productcontainer">
+        <div id="resultContainer"></div>
 
         <?php
+
         // Product Get
         $products = getDataAll('Products');
         foreach ($products as $product) {
             echo ' 
             <div class="product">
-                <div id="resultContainer"></div>
             <div class="imgbox">
                 <a href="">
                     <img src="../asset/banner2.jpg" alt="">
@@ -104,6 +106,7 @@ $id = 1;
                     </button>
                 </div>
                 <input type="hidden" name="ProductID" value=" ' . $product['ProductID'] . ' ">
+                <input type="hidden" name="UserID" value=" ' . $id . ' ">
 
             <div class="productsize">
                     <div class="sizediv">
@@ -113,12 +116,12 @@ $id = 1;
                         <span></span>
                     </label>
                     <label>
-                        <input type="radio" name="size" value="L">
-                        L
+                        <input type="radio" name="size" value="M">
+                        M
                         <span></span>
                     </label>
                     <label>
-                        <input type="radio" name="size" value="XL">
+                        <input type="radio" name="size" value="L">
                         XL
                         <span></span>
                     </label>
@@ -143,7 +146,6 @@ $id = 1;
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var forms = document.querySelectorAll('[id^=addCartForm_]');
-
             forms.forEach(function (form) {
                 form.addEventListener('submit', function (e) {
                     e.preventDefault();
@@ -162,7 +164,12 @@ $id = 1;
                         .then(data => {
                             console.log('Gelen Veri:', data);
                             document.getElementById('resultContainer').innerHTML = data;
+                            var autoHideTimeout = setTimeout(function () {
+                                document.getElementById('resultContainer').innerHTML = '';
+                            }, 2000);
                         })
+
+
                         .catch(error => console.error('Error:', error));
                 });
             });

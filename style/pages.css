@@ -92,39 +92,29 @@
     width: 100vw;
 }
 
-@media (max-width: 480px) and (min-width:280px) {
-    .filter.active .filtercontent {
-        width: 100%;
-        border-radius: 0 0 0 0;
-    }
-}
 
-@media (max-width: 1024px) and (min-width:480px) {
-    .filter.active .filtercontent {
-        width: 50%;
-
-    }
-}
 
 /* Piece */
-.controls .right .piece {
+.controls .right .displaysize {
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
     user-select: none;
     margin-right: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+
 }
 
-.controls .right .piece .large {
+.controls .right .large {
     display: none;
 }
 
-.controls .right .piece.close .large {
+.controls .right .displaysize.close .large {
     display: flex;
 }
 
-.controls .right .piece.close .small {
+.controls .right .displaysize.close .small {
     display: none;
 }
 
@@ -164,32 +154,51 @@
 
 .productcontainer .product:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-
 }
 
-.productcontainer .product #resultContainer {
-    position: absolute;
+#resultContainer {
+    position: fixed;
     width: 100%;
-    top: 15px;
+    left: 20px;
+    bottom: 20px;
+    width: 185px;
+    height: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 101;
+    opacity: 1;
+    transition: 400ms ease-in-out;
 }
 
-.productcontainer .product #resultContainer .Err {
+#resultContainer .Err {
     position: absolute;
     z-index: 10;
-    color: red;
+    color: white;
+    background-color: red;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-
+    width: 185px;
+    height: 35px;
+    box-shadow: 3px 3px 10px rgba(0, 120, 0, 0.05);
 }
 
-.productcontainer .product #resultContainer .Success {
+#resultContainer .Success {
     position: absolute;
     z-index: 10;
-    color: green;
+    color: white;
+    background-color: green;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    width: 185px;
+    height: 35px;
+    box-shadow: 3px 3px 10px rgba(0, 80, 0, 0.5);
 
 }
 
@@ -378,4 +387,30 @@ input[type="radio"] {
 
 .productcontainer .product.size .price p {
     font-size: 20px;
+}
+
+@media (max-width: 480px) and (min-width:280px) {
+    .controls .right hr:nth-child(2) {
+        display: none;
+    }
+
+    .controls .right .displaysize .large {
+        display: none;
+    }
+
+    .controls .right .displaysize .small {
+        display: none;
+    }
+
+    .filter.active .filtercontent {
+        width: 100%;
+        border-radius: 0 0 0 0;
+    }
+}
+
+@media (max-width: 1024px) and (min-width:480px) {
+    .filter.active .filtercontent {
+        width: 50%;
+
+    }
 }
