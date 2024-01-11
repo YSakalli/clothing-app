@@ -156,7 +156,7 @@ $id = 1;
                     console.log(forms);
                     console.log(productID);
 
-                    fetch('process.php', {
+                    fetch('addprocess.php', {
                         method: 'POST',
                         body: formData
                     })

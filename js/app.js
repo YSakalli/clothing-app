@@ -52,3 +52,5 @@ closefilter.addEventListener('click', function () {
 closetopinfo.addEventListener('click', function () {
     topInfo.style.display = 'none';
 });
+
+

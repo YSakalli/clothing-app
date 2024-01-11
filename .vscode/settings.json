@@ -6,45 +6,76 @@
                     "comment"
                 ],
                 "settings": {
-                    "foreground": "#00c857d2" // Yorumlar (Yeşil)
+                    "foreground": "#008000" // Yorumlar (Yeşil)
                 }
             },
+            // {
+            //     "scope": [
+            //         "keyword"
+            //     ],
+            //     "settings": {
+            //         "foreground": "#00CED1" // Anahtar kelimeler (Mavi)
+            //     }
+            // },
+            // {
+            //     "scope": [
+            //         "string"
+            //     ],
+            //     "settings": {
+            //         "foreground": "#FAEBD7" // String ifadeleri (Beyaz)
+            //     }
+            // },
+            // {
+            //     "scope": [
+            //         "entity.name.function"
+            //     ],
+            //     "settings": {
+            //         "foreground": "#E32636" // Fonksiyon isimleri ve desteklenen fonksiyonlar (Kahverengi)
+            //     }
+            // },
+            // {
+            //     "scope": [
+            //         "support.function"
+            //     ],
+            //     "settings": {
+            //         "foreground": "#FF4500" // Fonksiyon isimleri ve desteklenen fonksiyonlar (Kahverengi)
+            //     }
+            // },
+            // {
+            //     "scope": [
+            //         "variable.language"
+            //     ],
+            //     "settings": {
+            //         "foreground": "#350202" // Dil özel değişkenler (Yeşil)
+            //     }
+            // },
+            // {
+            //     "scope": [
+            //         "variable.other"
+            //     ],
+            //     "settings": {
+            //         "foreground": "#CD5555" // Diğer değişkenler (Turuncu)
+            //     }
+            // },
+            // {
+            //     "scope": [
+            //         "constant.numeric"
+            //     ],
+            //     "settings": {
+            //         "foreground": "#" // Sayısal sabitler (Altın Sarısı)
+            //     }
+            // },
+            // {
+            //     "scope": [
+            //         "constant.language"
+            //     ],
+            //     "settings": {
+            //         "foreground": "#9932CC" // Dil özel sabitler (Koyu Orkide)
+            //     }
+            // }
         ]
     }
 }
-//             {
-//                 "scope": [
-//                     "keyword"
-//                 ],
-//                 "settings": {
-//                     "foreground": "#ffffff" // Anahtar kelimeler (Mavi)
-//                 }
-//             },
-//             {
-//                 "scope": [
-//                     "string"
-//                 ],
-//                 "settings": {
-//                     "foreground": "#ffffff" // String ifadeleri (Beyaz)
-//                 }
-//             },
-//             {
-//                 "scope": [
-//                     "variable.language"
-//                 ],
-//                 "settings": {
-//                     "foreground": "#f74343" // Dil özel değişkenler (Yeşil)
-//                 }
-//             },
-//             {
-//                 "scope": [
-//                     "entity.name.function",
-//                     "support.function"
-//                 ],
-//                 "settings": {
-//                     "foreground": "#E61B1B" // Fonksiyon isimleri ve desteklenen fonksiyonlar (Kahverengi)
-//                 }
-//             },
 //             {
 //                 "scope": [
 //                     "comment.css",

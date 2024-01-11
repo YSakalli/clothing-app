@@ -4,11 +4,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../style/index.css">
+    <link rel="stylesheet" href="../style/productview.css">
+
     <title>Document</title>
 </head>
 
 <body>
+    <div class="menu">
+        <div class="innermenu">
+            <i class="material-icons close">close</i>
+            <aside>
+                <a href="">Sweatshirt</a>
+                <a href="">T-shirt</a>
+                <a href="">Pants</a>
+                <a href="">Jacket</a>
+            </aside>
+        </div>
+        <div class="closemenu"></div>
+    </div>
+    <nav>
+        <div class="menuicon">
+            <i class="material-icons">menu</i>
+        </div>
 
+
+        <div class="logo">
+            <img src="/asset/logo.png" alt="">
+        </div>
+        <div class="login">
+            <a href="" class="logintext">Login</a>
+            <a href="">
+                <i class="material-icons">local_mall</i>
+            </a>
+
+        </div>
+    </nav>
+
+    <div class="product">
+        <!-- Slider -->
+        <div class="slider">
+            <i class="material-icons prev">navigate_before</i>
+            <i class="material-icons next">chevron_right</i>
+            <div class="img">
+                <img src="../asset/banner1.jpg" alt="">
+                <img src="../asset/banner2.jpg" alt="">
+                <img src="../asset/logo.png" alt="">
+            </div>
+        </div>
+
+        <div class="productdetail">
+            <div class="header">
+                <h1>Red Sweatshirt</h1>
+            </div>
+
+            <div class="price-addcart">
+                <!-- Price -->
+                <div class="price">
+                    <p>25$</p>
+                </div>
+                <!-- Add Cart -->
+                <div class="addcart">
+                    <!-- Post Form -->
+                    <form action="" method="post">
+                        <button type="submit" name="addcart">Add Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="generalinfo"></div>
+    <script>
+        // Slider
+        let next = document.querySelector('.next');
+        let prev = document.querySelector('.prev');
+        let imgbox = document.querySelector('.product .slider .img');
+        let img = document.querySelectorAll('.product .slider img');
+        let slider = document.querySelector('.product .slider');
+
+        let active = 0;
+        let imglength = img.length - 1;
+        // Next ONclick
+        next.onclick = function () {
+            if (active + 1 > imglength) {
+                active = 0;
+            } else {
+                active = active + 1;
+            }
+            reloadSlider();
+        }
+        // Prev ONclick
+        prev.onclick = function () {
+            if (active - 1 < 0) {
+                active = imglength;
+            } else {
+                active = active - 1;
+            }
+            reloadSlider();
+        }
+        function reloadSlider() {
+            let checkleft = img[active].offsetLeft;
+            imgbox.style.left = -checkleft + 'px';
+        }
+
+
+
+    </script>
 </body>
 
 </html>
