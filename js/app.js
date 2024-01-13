@@ -32,7 +32,6 @@ closemenu.addEventListener('click', function () {
 
 piece.addEventListener('click', function () {
     piece.classList.toggle('close');
-
     products.forEach(function (product) {
         product.classList.toggle('size');
     })

@@ -1,8 +1,54 @@
+body {
+    position: relative;
+}
+
+#resultContainer {
+    position: fixed;
+    top: 10px;
+    height: 100px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 11;
+}
+
+#resultContainer .Err {
+    position: absolute;
+    z-index: 10;
+    color: white;
+    background-color: red;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 185px;
+    height: 35px;
+    box-shadow: 3px 3px 10px rgba(0, 120, 0, 0.05);
+}
+
+#resultContainer .Success {
+    position: absolute;
+    z-index: 10;
+    color: white;
+    background-color: green;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 185px;
+    height: 35px;
+    box-shadow: 3px 3px 10px rgba(0, 80, 0, 0.5);
+
+}
+
 .product {
     position: relative;
     height: 100vh;
     width: 100%;
-    background-color: #f0f0f0;
+    background-color: white;
     display: grid;
     grid-template-columns: 2fr 1fr;
     align-items: center;
@@ -41,6 +87,9 @@
     font-size: 48px;
     color: gray;
     z-index: 10;
+    opacity: 0;
+    transition: 300ms ease-in-out;
+
 }
 
 .product .slider .next {
@@ -53,36 +102,66 @@
     font-size: 48px;
     color: gray;
     z-index: 10;
+    opacity: 0;
+    transition: 300ms ease-in-out;
 
+}
+
+.product .slider:hover .next,
+.product .slider:hover .prev {
+    opacity: 1;
 
 }
 
 .product .productdetail {
     height: 500px;
     width: 500px;
-    background-color: white;
+    background-color: #f8f8f8;
     justify-self: end;
     position: relative;
+    box-shadow: 0px 0px 10px rgba(180, 180, 180, 0.2);
+}
+
+.product .productdetail .header h1 {
+    font-size: 28px;
+    margin-left: 32px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.product .productdetail .header p {
+    margin-left: 32px;
+    margin-right: 32px;
+    margin-top: 8px;
+    font-weight: 300;
+    color: gray;
 }
 
 .product .productdetail .price-addcart {
-    display: flex;
     position: absolute;
     align-items: center;
     justify-content: center;
     bottom: 0;
+    width: 100%;
 }
 
-.product .productdetail .price {
+.product .productdetail .price-addcart form {
+    display: flex;
+    width: 100%;
+    height: 30px;
+    position: relative;
+}
+
+.product .productdetail .price-addcart form .price {
     width: 150px;
-    background-color: #f8f8f8;
+    background-color: #f3f3f3;
     height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.product .productdetail .addcart {
+.product .productdetail .price-addcart form .addcart {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -90,26 +169,209 @@
     height: 30px;
 }
 
-.product .productdetail .addcart form {
+
+
+.product .productdetail .price-addcart form .addcart {
     width: 100%;
     height: 100%;
 }
 
-.product .productdetail .addcart form button {
+
+
+.product .productdetail .price-addcart form .addcart button {
     width: 100%;
     height: 100%;
     border: none;
-    background-color: red;
+    background-color: #40E0D0;
     color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+.product .productdetail .price-addcart form .addcart button:hover {
+    background-color: #3dd3c4;
+
+}
+
+/* Size Product  */
+.product .productdetail .price-addcart form {
+    display: flex;
+    position: relative;
+}
+
+.product .productdetail .price-addcart form .productsize {
+    display: flex;
+    position: absolute;
+    z-index: 15;
+    top: -64px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.product .productdetail .price-addcart form .productsize label {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    font-size: 16px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    color: black;
+
+}
+
+.product.size .productdetail .price-addcart form .productsize label {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+
+
+.product .productdetail .price-addcart form .productsize label span {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+}
+
+.product .productdetail .price-addcart form .productsize label:hover {
+    font-size: 20px;
     cursor: pointer;
 }
 
-.product .productdetail .addcart form button:hover {
-    background-color: rgb(240, 0, 0);
+.product.size .productdetail .price-addcart form .productsize label span {
+    height: 32px;
+    width: 32px;
+}
+
+.product .productdetail .price-addcart form .productsize label span::after {
+    content: "";
+    height: 24px;
+    width: 24px;
+    border: 2px #40E0D0 solid;
+    border-radius: 50%;
+    color: white;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 300ms ease-in-out 0s;
+}
+
+.product.size .productdetail .price-addcart form .productsize label span::after {
+    height: 32px;
+    width: 32px;
+}
+
+.product .productdetail .price-addcart form .productsize label input[type="radio"]:checked~span:after {
+    transform: translate(-50%, -50%) scale(1);
 
 }
 
-@media (max-width: 1200px) and (min-width:768px) {
+.generalinfo {
+    background-color: #f8f8f8;
+    width: 100%;
+    height: 160px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: 4fr 4fr 4fr;
+}
+
+.generalinfo .materiel,
+.generalinfo .use,
+.generalinfo .cargo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.generalinfo .materiel h1,
+.generalinfo .use h1,
+.generalinfo .cargo h1 {
+    position: absolute;
+    top: 4px;
+    font-size: 20px;
+    font-weight: 500;
+    color: rgba(100, 100, 100, 0.5);
+}
+
+.generalinfo .materiel span,
+.generalinfo .use span,
+.generalinfo .cargo span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.generalinfo .materiel span img,
+.generalinfo .use span img,
+.generalinfo .cargo span img {
+    width: 28px;
+}
+
+.generalinfo .materiel span p,
+.generalinfo .use span p,
+.generalinfo .cargo span p {
+    font-weight: 300;
+}
+
+.faq {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 64px;
+    margin-left: 32px;
+    gap: 8px;
+}
+
+.faq .question .header {
+    width: 50%;
+    display: flex;
+    align-items: center;
+
+}
+
+.faq .question .header h1 {
+    font-size: 16px;
+    margin-left: 24px;
+}
+
+.faq .question .anwers {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+}
+
+.faq .question.active .anwers {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width: 50%;
+    position: relative;
+    opacity: 1;
+}
+
+
+.faq .question span {
+    cursor: pointer;
+    font-size: 24px;
+    position: absolute;
+    z-index: 10;
+}
+
+
+@media (max-width: 1280px) and (min-width:768px) {
     .product {
         display: flex;
         flex-direction: column;
@@ -124,6 +386,58 @@
 }
 
 @media (max-width: 767px) and (min-width:280px) {
+    .faq .question {
+        width: 95%;
+    }
+
+    .faq .question .header {
+        width: 100%;
+
+    }
+
+    .faq .question.active .anwers {
+        width: 95%;
+        margin-right: 8px;
+
+    }
+
+
+    .product .productdetail {
+        height: 400px;
+        width: 90%;
+    }
+
+    .product .productdetail .header p {
+        margin: 0;
+        text-align: center;
+    }
+
+    .generalinfo {
+        background-color: #f8f8f8;
+        height: auto;
+        grid-template-columns: none;
+        grid-template-rows: 4fr 4fr 4fr;
+    }
+
+    .generalinfo .materiel,
+    .generalinfo .use,
+    .generalinfo .cargo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin-bottom: 16px;
+        margin-top: 16px;
+    }
+
+    .generalinfo .materiel h1,
+    .generalinfo .use h1,
+    .generalinfo .cargo h1 {
+        margin-bottom: 8px;
+        position: relative;
+    }
+
     .product {
         display: flex;
         flex-direction: column;

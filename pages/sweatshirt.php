@@ -94,7 +94,7 @@ $id = 1;
             echo ' 
             <div class="product">
             <div class="imgbox">
-                <a href="">
+                <a href="productview.php?productid=' . $product['ProductID'] . '">
                     <img src="../asset/banner2.jpg" alt="">
                 </a>
             </div>
@@ -144,6 +144,7 @@ $id = 1;
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../js/app.js"></script>
     <script>
+        // Fetch Api
         document.addEventListener('DOMContentLoaded', function () {
             var forms = document.querySelectorAll('[id^=addCartForm_]');
             forms.forEach(function (form) {
