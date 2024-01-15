@@ -14,13 +14,17 @@
 <body>
     <section>
         <div class="left">
+            <form action="" method="post">
+                <input type="text" placeholder="User Name">
+                <input type="email" placeholder="E-mail">
+                <input type="password" placeholder="Password">
+                <input type="password" placeholder="Re-enter password">
+                <button type="submit" name="register">Register</button>
 
-        </div>
+                <div class="g-signin2" data-onsuccess="onSignIn" data-width="200"></div>
 
-        <div class="right">
-            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            </form>
         </div>
-        <a href="#" onclick="signOut();">Sign out</a>
     </section>
 
     <script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -32,15 +36,13 @@
             console.log('Image URL: ' + profile.getImageUrl());
             console.log('Email: ' + profile.getEmail());
         }
-        function SignOut() {
-            function signOut() {
-                var auth2 = gapi.auth2.getAuthInstance();
-                auth2.signOut().then(function () {
-                    console.log('User signed out.');
-                });
-            }
-        }
 
+        function SignOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
+            });
+        }
     </script>
 </body>
 
