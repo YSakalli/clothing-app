@@ -47,7 +47,6 @@ body {
 
 .menu {
     display: flex;
-
 }
 
 .menu.active {
@@ -142,8 +141,8 @@ nav .menuicon {
 
 
 nav .logo img {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     position: absolute;
     top: 0;
     left: 50%;

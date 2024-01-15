@@ -95,8 +95,9 @@ $id = 1;
             <div class="product">
             <div class="imgbox">
                 <a href="productview.php?productid=' . $product['ProductID'] . '">
-                    <img src="../asset/banner2.jpg" alt="">
+                
                 </a>
+                    <img src="../asset/banner2.jpg" alt="">
             </div>
 
             <form action="" method="post" id="addCartForm_' . $product['ProductID'] . '">

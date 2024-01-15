@@ -4,25 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="google-signin-client_id" content="AIzaSyBhbNxlTmDBeEv7sKyE_vd6aS08s75xO-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="style/login.css">
+    <title>Login</title>
 </head>
 
 <body>
+    <section>
+        <div class="left"></div>
+        <div class="right"></div>
 
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    </section>
 
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script>
 
-        function onSignIn(googleUser) {
-            var profile = googleUser.getBasicProfile();
-            console.log('ID: ' + profile.getId());
-            console.log('Name: ' + profile.getName());
-            console.log('Image URL: ' + profile.getImageUrl());
-            console.log('Email: ' + profile.getEmail());
-        }
-    </script>
 </body>
 
 </html>
